@@ -1,0 +1,56 @@
+azureKeyVaultToKubernetes:
+  envInjectorEnabled: false
+  vaults:
+    - vaultName: Adacaapi
+      objects:
+        - query: Tentants
+          secretName: regis-api-sql-connectionstrings
+          envName: Tentants
+        - query: RegisBermudaDBConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisBermudaDBConnection
+        - query: RegisMorristownDBConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisMorristownDBConnection
+        - query: RegisBermudaSysAdminDBConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisBermudaSysAdminDBConnection
+        - query: RegisMorristownSysAdminDBConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisMorristownSysAdminDBConnection
+        - query: RegisSysAdmin_Adacaapi_BDA
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisSysAdmin_Adacaapi_BDA
+        - query: RegisSysAdmin_Adacaapi_BDASB
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisSysAdmin_Adacaapi_BDASB 
+        - query: RegisSysAdmin_Adacaapi_US
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RegisSysAdmin_Adacaapi_US 
+        - query: Regis_Adacaapi_BDA
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__Regis_Adacaapi_BDA
+        - query: Regis_Adacaapi_BDASB
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__Regis_Adacaapi_BDASB 
+        - query: Regis_Adacaapi_US
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__Regis_Adacaapi_US 
+        - query: RedisCacheConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__RedisCacheConnection
+        - query: AzureRedisCacheConnection
+          secretName: regis-api-sql-connectionstrings
+          envName: ConnectionStrings__AzureRedisCacheConnection
+        - query: CacheType
+          secretName: regis-api-appsettings-cache
+          envName: CacheType
+        - query: SwaggerPrefix
+          secretName: regis-api-cessions-appsettings
+          envName: Swagger__SwaggerPrefix  
+        - query: SwaggerBasePath
+          secretName: regis-api-cessions-appsettings
+          envName: Swagger__SwaggerBasePath
+        - query: ApiKey
+          secretName: regis-api-cessions-appsettings
+          envName: ApiKey

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "Adacaapi.fullname" . }}
+  labels:
+    app: {{ template "Adacaapi.name" . }}
+    chart: {{ template "Adacaapi.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "Adacaapi.name" . }}
+    release: {{ .Release.Name }}

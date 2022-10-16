@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: archre2/Infrastructure
+      ref: "refs/heads/develop"      
+      endpoint: archre2
+
+variables:
+  containerRegistry: $(dockerRegistryServiceConnection2)
+  chartFolderPath: charts/Adacaapi
+  versionPrefix: "1.0"
+
+stages:
+  - stage: BuildNew
+    displayName: Build and Push Docker Image  
+    variables:
+      imageTag: $(versionPrefix).$(Build.BuildId)
+    jobs:
+      - template: CI/AzurePipelines/docker-build-push.yml@templates
+        parameters:
+          imageTag: $(imageTag)
+          containerRegistry: $(containerRegistry)         
+      - template: CI/AzurePipelines/helm-artifacts.yml@templates
+        parameters:
+          chartFolderPath: $(chartFolderPath)
+          imageTag: $(imageTag)

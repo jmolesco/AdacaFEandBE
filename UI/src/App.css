@@ -1,0 +1,13 @@
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.alert {
+    position: relative;
+    padding: 0.4rem 0.4rem;
+    margin-bottom: .1rem; 
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
